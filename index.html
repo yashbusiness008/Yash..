@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yash - Professional Minecraft Developer</title>
+    <style>
+        /* --- CSS STYLES --- */
+        :root {
+            --primary-color: #ffb400; /* Gold/Yellow accent common in gaming portfolios */
+            --bg-dark: #111111;
+            --bg-card: #1e1e1e;
+            --text-light: #eeeeee;
+            --text-gray: #aaaaaa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* HEADER / HERO */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com/1920x600/333/fff?text=Minecraft+Background'); /* Placeholder BG */
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            color: var(--text-light);
+        }
+
+        header .btn {
+            margin-top: 30px;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: #000;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        header .btn:hover {
+            background-color: #fff;
+        }
+
+        /* SECTIONS GENERAL */
+        section {
+            padding: 60px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0;
+        }
+
+        /* ABOUT */
+        .about-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .personal-details {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .detail-item strong {
+            color: var(--primary-color);
+        }
+
+        /* WHAT I DO (Services) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            border-bottom: 3px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .card h3 { margin-bottom: 15px; color: var(--primary-color); }
+
+        /* TESTIMONIALS */
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial {
+            background-color: var(--bg-card);
+            padding: 25px;
+            border-radius: 10px;
+            font-style: italic;
+        }
+
+        .testimonial h4 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            font-style: normal;
+        }
+
+        /* FUN FACTS */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .stat-item h3 { font-size: 2.5rem; color: var(--primary-color); }
+        .stat-item p { text-transform: uppercase; letter-spacing: 1px; }
+
+        /* PRICING */
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background-color: var(--bg-card);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+            border: 1px solid #333;
+        }
+
+        .price-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .price-card .price { font-size: 2rem; color: var(--primary-color); font-weight: bold; margin-bottom: 20px; }
+
+        /* EXPERIENCE & SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .skills-grid { grid-template-columns: 1fr; }
+        }
+
+        .skill-bar {
+            margin-bottom: 20px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .progress-bg {
+            background-color: #333;
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress {
+            background-color: var(--primary-color);
+            height: 100%;
+        }
+
+        /* FOOTER */
+        footer {
+            background-color: #000;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+            color: var(--text-gray);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Yash</h1>
+        <p>Professional Minecraft Developer</p>
+        <a href="#about" class="btn">Discover More</a>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-container">
+            <div class="about-text">
+                <p>Hi there! I am Yash, a professional Minecraft server developer. In the past, I have developed 100+ Minecraft servers and currently work on 2+ active servers. My expertise lies in creating optimized, high-performance Minecraft experiences that engage players and drive community growth. I bring technical excellence and creative vision to every project.</p>
+                <br>
+                <p>I also develop games in Unity Engine.</p>
+                
+                <div class="personal-details">
+                    <div class="detail-item"><strong>Age:</strong> 15</div>
+                    <div class="detail-item"><strong>Residence:</strong> Nagpur</div>
+                    <div class="detail-item"><strong>Discord:</strong> yash.exe0</div>
+                    <div class="detail-item"><strong>Experience:</strong> 3.7+ Years</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>What I Do</h2>
+        <div class="services-grid">
+            <div class="card">
+                <h3>🎮 Server Development</h3>
+                <p>Custom Minecraft server setups with optimized performance, unique game modes, and engaging player experiences.</p>
+            </div>
+            <div class="card">
+                <h3>⚡ Plugin Config Expert</h3>
+                <p>Bespoke plugins tailored to your server's needs, from simple utilities to complex game mechanics.</p>
+            </div>
+            <div class="card">
+                <h3>🛡️ Server Optimization</h3>
+                <p>Performance tuning, security hardening, and anti-cheat implementations for smooth gameplay.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="feedback">
+        <h2>Feedback</h2>
+        <div class="feedback-grid">
+            <div class="testimonial">
+                <h4>Smith</h4>
+                <p>"Yash, your setups are absolutely amazing! The attention to detail and optimization is top-notch. Just loved it! 🔥🚀"</p>
+            </div>
+            <div class="testimonial">
+                <h4>Alex </h4>
+                <p>"Yash your server setups are truly next-level! Everything is smooth, optimized, and professional absolutely loved it! 🔥🚀"</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="stats">
+        <h2>Fun Facts</h2>
+        <div class="stats-container">
+            <div class="stat-item">
+                <h3>200+</h3>
+                <p>Happy Clients</p>
+            </div>
+            <div class="stat-item">
+                <h3>3.7+</h3>
+                <p>Years Experience</p>
+            </div>
+            <div class="stat-item">
+                <h3>40+</h3>
+                <p>Own Setups</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <h2>Pricing</h2>
+        <div class="pricing-container">
+            <div class="price-card">
+                <h3>Premade Setup</h3>
+                <div class="price">Rs 500</div>
+                <p>Standard configuration</p>
+            </div>
+            <div class="price-card">
+                <h3>Custom Made Setup</h3>
+                <div class="price">Rs 1000</div>
+                <p>Tailored to your needs</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="resume">
+        <h2>Experience & Skills</h2>
+        <div class="skills-grid">
+            <div class="experience">
+                <h3>Minecraft Server Development</h3>
+                <p style="color: var(--primary-color); margin-bottom: 10px;">2022 - Current</p>
+                <ul style="list-style-type: disc; margin-left: 20px; color: var(--text-gray);">
+                    <li>Designed and managed 100+ Minecraft servers.</li>
+                    <li>Developed custom game modes (Lifesteal, Factions, BedWars, OneBlock).</li>
+                    <li>Handled giveaways, keyalls, and growth strategies.</li>
+                </ul>
+            </div>
+
+            <div class="skills">
+                <div class="skill-bar">
+                    <div class="skill-info"><span>Java</span><span>95%</span></div>
+                    <div class="progress-bg"><div class="progress" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-info"><span>Web Design</span><span>85%</span></div>
+                    <div class="progress-bg"><div class="progress" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-info"><span>HTML/CSS</span><span>85%</span></div>
+                    <div class="progress-bg"><div class="progress" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-bar">
+                    <div class="skill-info"><span>PHP</span><span>80%</span></div>
+                    <div class="progress-bg"><div class="progress" style="width: 80%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Yash. All RightReserved.</p>
+    </footer>
+
+</body>
+</html>
